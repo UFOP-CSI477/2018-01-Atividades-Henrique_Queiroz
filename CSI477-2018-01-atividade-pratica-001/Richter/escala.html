@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Escala Richter</title>
+
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="./css/bootstrap.css">
+
+	<script>
+		
+		function calcular() {
+        var amplitude = parseFloat(document.interacao.amplitude.value);
+        var intervalot = parseFloat(document.interacao.intervalo.value);
+       
+        if ( document.interacao.amplitude.value.length == 0 || isNaN(amplitude) ) {
+          document.getElementById("alertaV1").style.display = "block";
+          document.getElementById("grupoV1").classList.add("has-error");
+          document.interacao.amplitude.value = "";
+          document.interacao.amplitude.focus();
+          return;
+        }
+        document.getElementById("grupoV1").classList.remove("has-error");
+        document.getElementById("alertaV1").style.display = "none";
+
+        if ( document.interacao.intervalo.value.length == 0 || isNaN(intervalot) ) {
+          document.getElementById("alertaV2").style.display = "block";
+          document.getElementById("grupoV2").classList.add("has-error");
+          document.interacao.intervalo.value = "";
+          document.interacao.intervalo.focus();
+          return;
+        }
+              document.getElementById("grupoV2").classList.remove("has-error");
+        document.getElementById("alertaV2").style.display = "none";
+
+        var text="";
+    
+        var res= Math.log10(parseInt(amplitude))+ 3 * Math.log10(8*parseInt(intervalot)) - 2.92;
+
+        if(res<3.5)
+        {
+          text="Geralmente não sentido, mas gravado";
+        }
+        if(res>=3.5 && res<=5.4)
+        {
+          text= "As vezes é sentido, mas raramente causa danos";
+        }
+
+        if(res>=5.5 && res<=6.0)
+        {
+          text= "No máximo causa pequenos danos a prédios bem contruidos, mas pode danificar seriamente casas mal construidas em regiões próximas ";
+        }
+
+        if(res>=6.1 && res<=36.9)
+
+        {
+          text = "Pode ser destrutivo em áreas em torno de até 100 km do epicentro";
+        }
+
+	    if(res>=7.0 && res<=7.9)
+	    {
+	      text= "Grande terremoto. Ele pode causar sérios danos numa grande faixa";
+	    }
+
+        if(res>=8)
+        {
+          text=" Enorme terrmeto.Pode causar graves danos em muitas áreas mesmo que estejam a centenas de quilometros";
+        }
+
+
+
+
+
+
+document.interacao.resultado.value = res;
+document.interacao.text.value = text;
+
+}
+	</script>
+</head>
+<body style="background-color: #A9E2F3">
+	<center>
+		<img src="./richter.jpg" height="200" width="300">
+		<img src="./sismo.png" height="200" width="900">
+
+	</center>
+
+	<center>
+		<label style="font-size: 50px;">Cálculo da Magnitude de Richter</label>
+	</center>
+
+	<form name="interacao">
+		<center>
+		<div class="form-inline" id="grupoV1">
+			
+				<label for="amplitude" >Amplitude:</label>
+				<input type="text" name="amplitude" class="form-control">
+				<br>
+				<br>
+		<div class="alert alert-danger" style="display: none" id="alertaV1">
+			<p>Informe a amplitude corretamente</p>
+
+		</div>
+	</div>
+
+		<div class="form-inline" id="grupoV2">
+			<label for="intervalo">Intervalo de Tempo:</label>
+			<input type="text" name="intervalo" class="form-control"><br>
+		<div class="alert alert-danger" style="display: none" id="alertaV1">
+			<p>Informe O intervalo corretamente</p>
+		</div>
+		</div>
+
+		<div class="form-inline" id="grupoRes">
+			<center>
+				<br>
+				<br>
+				<br>
+			<button type="button" name="calcula" onclick="calcular()" class="btn btn-primary" >Calcular</button>
+			<button type="reset" name="limpar" class="btn btn-warning"> Limpar Dados</button>
+			<br>
+			<br>
+			<br>
+			</center>
+		</div>
+
+		<div>
+			<label for="resultado">Resultado:</label>
+			<input type="text" name="resultado" disabled="true">
+		</div>
+		</center>
+
+		<div>
+			<center>
+			<label for="text">Informações:</label>
+			<input type="text" name="text" disabled="true">
+			</center>
+		</div>
+
+	</form>
+	
+
+</body>
+</html>

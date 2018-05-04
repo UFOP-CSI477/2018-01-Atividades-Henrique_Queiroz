@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Calculo de IMC</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+
+	<script type="text/javascript">
+		function calcular(){
+			var n1 = parseFloat(document.dados.peso.value);
+			var n2 = parseFloat(document.dados.altura.value);
+
+			//if(validar(document.dados.valor1, "grupoV1, "alertaV1"))
+
+			if( document.dados.peso.value.length == 0 || isNaN(n1) ){
+				//window.alert("Preencha o primeiro número corretamente");
+				document.dados.peso.value = "";
+				document.dados.peso.focus();
+				document.getElementById("grupoV1").classList.add("has-error");
+				document.getElementById("alertaV1").style.display = "block";
+
+				return;
+			} 
+
+			document.getElementById("grupoV1").classList.remove("has-error");
+			document.getElementById("alertaV1").style.display = "none";
+
+			if( document.dados.altura.value.length == 0 || isNaN(n2) ){
+				//window.alert("Preencha o segundo número corretamente");
+				document.dados.altura.value = "";
+				document.dados.altura.focus();
+				document.getElementById("grupoV2").classList.add("has-error");
+				document.getElementById("alertaV2").style.display = "block";
+
+				return;
+			} 
+
+			document.getElementById("grupoV2").classList.remove("has-error");
+			document.getElementById("alertaV2").style.display = "none";
+
+			var res = (n1/(n2*n2));
+
+
+			var inverso = ((n2*n2)*res);
+
+			document.dados.res.value = res;
+			document.dados.ideal.value = inverso;
+
+						
+
+		}
+	</script>
+	<meta charset="utf-8">
+
+
+
+</head>
+<body style="background-color: #93B874;">
+<img src="./mulher.jpg" align="left" height="500">
+	<h1 align="center">Seja bem vindo ao cálculo de IMC! Bora medir?</h1>
+
+	<form name="dados" >
+		<center>
+		<div class="form-inline" id="grupoV1">
+			
+		<label for="peso">Insira seu peso:</label>
+		<input type="text" name="peso" class="form-control">
+
+		<div class="alert alert-danger" style="display: none" id="alertaV1">
+			<p>Informe o peso corretamente</p>
+		</div>
+		</div>
+		
+		
+		<div class="form-inline" id="grupoV2">
+			<label for="altura">Agora insira sua altura:</label>
+			<input type="text" name="altura" class="form-control">
+
+			<div class="alert alert-danger" style="display: none" id="alertaV2">
+			<p>Informe sua altura corretamente</p>
+		</div>
+		</div>
+
+		<div class="form-group" id="grupoRes">
+			<label for="res" >Resultado do IMC</label>
+			<input type="text" name="res" disabled="true">
+			<br>
+			<label for="ideal" >Seu peso ideal seria:</label>
+			<input type="text" name="ideal" disabled="true">
+
+		</div>
+
+
+		<div class="form-inline" id="grupoClassif">
+			<label for="classf">Sua classificação:</label>
+			<input type="text" name="classf" disabled="true">
+		</div>
+		
+
+		<br>
+		<br>
+
+		<button type="button" class="btn btn-primary"onclick="calcular()">Calcular</button>
+
+		<button type="reset" class="btn btn-warning">Limpar</button>
+		</center>
+	</form>
+
+</body>
+</html>

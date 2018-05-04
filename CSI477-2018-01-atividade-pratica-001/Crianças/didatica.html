@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+</style>
+	<meta charset="utf-8">
+	<title>Exercícios Dídáticos para Crianças</title>
+
+	<link rel="stylesheet" href="./css/bootstrap.css">
+
+	<script type="text/javascript">
+		
+		function acerto(imagem){
+				
+				 document.getElementById(imagem).src='./acerto.png';
+				
+		};
+
+		function erro(){
+
+		};
+
+	</script>
+
+</head>
+<body style="color: #0000FF;">
+	<form name="interacao">
+
+		<div>
+			<center>
+				<br>
+				<label style="font-size: 30px; color: #0000FF;">Bem Vindo! Tente descobrir qual é o número através do nome por extenso:</label>
+				<br>
+				<br>
+			</center>
+		</div>
+		
+		<div class="grid-container">
+			
+				<div class="grid-item"><img src="./oito.png" name="oito" id="oito1">
+				
+				<br>
+				<button name="9" class="btn btn-primary" style="font-family:  all; " onclick="">9</button>
+				<button name="7" class="btn btn-primary" style="font-family:  all; " onclick="">7</button>
+				<button name="8" class="btn btn-primary" style="font-family:  all; " onclick="acerto('oito.png')">8</button>
+				<button name="12" class="btn btn-primary" style="font-family:  all; " onclick="">12</button>
+			
+			</div>
+
+			<div class="grid-item">
+				<img src="./dois.png">
+				
+				<br>
+				<button name="5" class="btn btn-primary" style="font-family:  all; " onclick="">5</button>
+				<button name="2" class="btn btn-primary" style="font-family:  all; " onclick="acerto('dois.png')">2</button>
+				<button name="9" class="btn btn-primary" style="font-family:  all; " onclick="">9</button>
+				<button name="10" class="btn btn-primary" style="font-family:  all; " onclick="">10</button>
+
+			</div>
+
+			<div class="grid-item">
+				<img src="./nove.png">
+				
+				<br>
+				<button name="9" class="btn btn-primary" style="font-family:  all; " onclick="acerto('nove.png')">9</button>
+				<button name="2" class="btn btn-primary" style="font-family:  all; " onclick="">2</button>
+				<button name="5" class="btn btn-primary" style="font-family:  all; " onclick="">5</button>
+				<button name="10" class="btn btn-primary" style="font-family:  all; " onclick="">10</button>
+
+			</div>
+
+			
+				
+			
+		</div>
+
+				<center>
+					<img src="./criancas.jpg">
+				</center>
+
+				
+				
+
+	</form>
+
+</body>
+</html>
