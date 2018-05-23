@@ -1,0 +1,8 @@
+Wallpaper laboratorial: http://www.centrohelguera.com.ar/wp-content/uploads/2016/07/714.jpg
+
+código JS para tratamento de campos inválidos do lado cliente(e-mail): https://www.devmedia.com.br/validando-e-mail-em-inputs-html-com-javascript/26427
+
+Ideia de formulário de Login de funcionário: https://bootsnipp.com/snippets/featured/custom-login-registration-amp-forgot-password
+
+Imagem médico e Enfermeiro: https://st3.depositphotos.com/1594308/17766/i/1600/depositphotos_177666510-stock-photo-doctor-patient-pointing-ray-image.jpg
+
